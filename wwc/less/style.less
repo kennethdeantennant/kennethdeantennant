@@ -1,0 +1,151 @@
+@fontfamily: 'Ubuntu', sans-serif;
+@fontsize: 1.3em;
+@primary: #FFF;
+@darkslategray: darkslategray;
+@linkcolor: navy;
+@fontsizeAlt: 1.3em;
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: @fontsizeAlt;
+}
+
+.header {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: @fontsizeAlt;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background: @primary !important;
+    margin-bottom: 40px;
+    font-size: @fontsize;
+}
+
+li {
+    font-size: 14px;
+    font-family: verdana;
+}
+
+.info {
+    font-size: 14px;
+    font-family: verdana;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.finalize {
+    cursor: pointer;
+    color: darkred;
+    font-weight: 700;
+}
+
+tr:nth-child(even) {
+    background: #CCC;
+}
+
+tr:nth-child(odd) {
+    background: #FFF;
+}
+
+.deposit-label {
+    vertical-align: baseline;
+    padding-top: 5px;
+}
+
+.footer {
+    font-family: @fontfamily;
+    color: white;
+    font-size: 0.6em;
+    text-align: center;
+    padding-top: 4px;
+    background-color: @darkslategray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+}
+
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+
+.control-label {
+    border-radius: 5px;
+}
+
+#tableheader {
+    background-color: @darkslategray; 
+    color: white; 
+    font-size: 16px;
+    font-family: 'Satisfy', cursive;
+}
+
+hr {
+    border-top: 1px dotted red;
+    width: 75%;
+    margin: auto;
+}
+
+.expense:hover{
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a:link {
+    font-size: 14px;
+    color: @linkcolor;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 14px;
+    color: @linkcolor;
+    text-decoration: underline;
+}
+
+a:visited {
+    font-size: 14px;
+    color: @linkcolor;
+    text-decoration: none;
+}
+
+a.email:link {
+    color: yellow;
+}
+
+a.email:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+a.email:visited {
+    color: yellow;
+}
+
+.table{
+    margin-top: 10px;
+    font-size: @fontsize;
+}
+
+.logo {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
