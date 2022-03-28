@@ -1,0 +1,65 @@
+<nav class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">THE Money Manager</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse" ng-class="{collapse: isCollapsed}">
+    <ul class="nav navbar-nav">
+      <li><a href="#/summary">Summary</a></li>
+      <li><a href="#/deposits">Deposits</a></li>
+      <li><a href="#/categories">Categories</a></li>
+      <li><a href="#/account">Account</a></li>
+      <li class="active"><a href="#/expenses/{{ selectedCategory }}">Expenses</a></li>
+      <li><a href="#/income">Incomes</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+    </ul>
+  </div><!--/.nav-collapse -->
+</nav>
+<div class="container">
+    <div class="row" id="tableheader" style="padding: 10px; border-radius: 50px">
+        <div class="col-md-12">
+            <span style="padding: 20px;">Expenses for {{ descriptionList[0].cat }} {{ selectedYear }}</span>
+        </div>
+    </div>
+    <br>
+    <div class="row"> <!-- This is for the detail view -->
+        <div class="col-xs-1" align="center">
+            <strong>Years</strong>
+            <div ng-repeat="item in yearList" ng-click="change( item.year )">
+                <span class="expense" ng-show="item.year != selectedYear">{{ item.year }}</span>
+                <span class="badge" ng-show="item.year == selectedYear">{{ item.year }}</span>
+            </div>
+        </div>
+        <div class="col-xs-11">
+            <span ng-repeat="category in categories">
+                <span ng-show="descriptionList[0].cat === category.name" class="badge"><i class="fa fa-hand-o-right"></i> {{ category.name }}</span>
+                <span ng-show="descriptionList[0].cat !== category.name" class="main"><i class="fa fa-hand-o-right"></i><a href="#/expenses/{{ category.id }}">{{ category.name }}</a>&nbsp;&nbsp;</span>
+            </span>
+            <table class="table">
+                <tr ng-repeat="item in descriptionList | myExpensesDateFilter:selectedYear track by $index">
+                    <td>
+                        {{ item.description }}
+                    </td>
+                    <td align="right">
+                        {{ item.amount | currency }}
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <strong>Total</strong>
+                    </td>
+                    <td align="right">
+                        {{ descriptionList | total:'amount':'year':'cat_id':selectedYear:selectedCategory | currency }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

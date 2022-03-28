@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Journal</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <span class="alert alert-danger" ng-show="message.length>0">{{ message }}</span>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="username" class="form-control" ng-model="username" autofocus >
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="password" class="form-control" ng-model="password">
+        </div>
+        <button type="submit" class="btn btn-success" ng-click="login()">Sign in</button>
+      </form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>{{ today }}</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus tortor, tempus sed velit scelerisque, commodo euismod orci. Curabitur tincidunt velit posuere dui fermentum scelerisque. Morbi hendrerit orci vel varius tincidunt. In imperdiet placerat sem ac varius. Nunc orci augue, fermentum id dolor sed, vulputate suscipit enim. Mauris ultrices mollis venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sit amet libero sapien.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>{{ yesterday }}</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus tortor, tempus sed velit scelerisque, commodo euismod orci. Curabitur tincidunt velit posuere dui fermentum scelerisque. Morbi hendrerit orci vel varius tincidunt. In imperdiet placerat sem ac varius. Nunc orci augue, fermentum id dolor sed, vulputate suscipit enim. Mauris ultrices mollis venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sit amet libero sapien.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>{{ twodaysago }}</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus tortor, tempus sed velit scelerisque, commodo euismod orci. Curabitur tincidunt velit posuere dui fermentum scelerisque. Morbi hendrerit orci vel varius tincidunt. In imperdiet placerat sem ac varius. Nunc orci augue, fermentum id dolor sed, vulputate suscipit enim. Mauris ultrices mollis venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sit amet libero sapien.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>{{ threedaysago }}</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus tortor, tempus sed velit scelerisque, commodo euismod orci. Curabitur tincidunt velit posuere dui fermentum scelerisque. Morbi hendrerit orci vel varius tincidunt. In imperdiet placerat sem ac varius. Nunc orci augue, fermentum id dolor sed, vulputate suscipit enim. Mauris ultrices mollis venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sit amet libero sapien.</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Journal <span style="font-size: small; padding-left: 20px; font-family: cursive;">(welcome {{ userFirstName }})</span></a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">
+          <li><a class="logout-link pull-right" href="#/account">Account <i class="fa fa-user"></i></a></li>
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <li><a href="#/entries"><i class="fa fa-book"></i> Entries</a></li>
+  <li class="active"><i class="fa fa-calendar"></i> Daily Entry</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 journal-summary">
+            <div class="alert alert-success" ng-if="message.length > 0">{{message}}</div>
+            <div class="entry-date" align="center"><a href="#/entry/{{ routeDatePrior }}"  title="Go to the previous day..."><i class="fa fa-angle-double-left"></i></a> {{ dayOfWeek( routeDate ) }}, {{ spelledOutMonth( routeDate ) }} {{ dayFromDate( routeDate ) }}<sup>{{ nthDay( routeDate ) }}</sup>, {{ yearFromDate( routeDate ) }} <a href="#/entry/{{ routeDateNext }}" title="Go to the next day..." ng-if="routeDate < today"><i class="fa fa-angle-double-right"></i></a></div><br />
+            <input class="form-control" type="text" ng-model="singleTopic" size="255" placeholder="Enter optional topic..." value="{{ singleTopic }}"/>
+            <span class="last-saved">Last Saved: {{ lastUpdated.format("MM-DD-YYYY HH:mm:ss a")  }}</span>
+            <span class="entry-date pull-right">{{ doWordCount( singleEntryText ) }}</span>
+            <textarea cols="90" rows="15" class='textarea' ng-model="singleEntryText">{{ singleEntryText }}</textarea>
+            <button id="update" type="submit" class="btn btn-success btn-large" ng-click="save( singleEntryID, false )"><i class="fa fa-star"></i> Save!!!</button>
+            <button id="cancel" type="submit" class="btn btn-warning btn-large" ng-click="cancel()"><i class="fa fa-ban"></i> Cancel</button>
+            <button id="delete" type="submit" class="btn btn-danger btn-large pull-right" ng-click="delete( singleEntryID )" ng-disabled="singleEntryID == null"><i class="fa fa-trash"></i> Delete</button>
+        </div>
+    </div>
+</div>

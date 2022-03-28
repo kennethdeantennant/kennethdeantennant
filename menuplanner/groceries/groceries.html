@@ -1,0 +1,73 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Menu Planner</a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">   
+         <li><a class="logout-link pull-right" href="#/menus">Menus <i class="fa fa-calendar-o"></i></a></li> 
+         <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+<ol class="breadcrumb">
+  <li>Welcome {{ userFirstName }}!</li>
+  <li><a href="#/meals" ng-click="logout()"><i class="fa fa-bars"></i> Meals</a></li>
+  <li class="active"><i class="fa fa-barcode"></i> Groceries</li>
+</ol>
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="box">
+            <h1 class="heading">{{ decodeMenuCategory( mealtype ) }} Grocery List <span class="badge">{{ mealcount }}</span></h1>
+            <br>
+            <div class="well well-sm">Select the ingredients for each meal and click on the 'Print Groceries' button when ready.</div>
+            <div ng-repeat="meal in selectedMeals | filter: {category:mealtype}">
+              <h4>{{ meal.name }}</h4>
+              <table class="table table-striped" width="100%">
+                  <tr ng-repeat="ingredient in selectedMealIngredients | filter:{mealid:meal.id}:true" ng-if="ingredient.ingredient != null">
+                      <td style="vertical-align: middle; text-transform: capitalize;">
+                         <i class="fa fa-trash fa-lg" ng-click="remove(ingredient)"></i> {{ ingredient.ingredient }}
+                      </td>
+                      <td>
+                         {{ setSelectedCategory(ingredient.category) }}
+                         <select class="form-control" ng-model="selectedCategory" ng-options="category as category for category in categories track by category" ng-change="updateSelectedCategory(ingredient.ingredientId, selectedCategory)">
+                         </select>
+                      </td>
+                      <td>
+                         {{ setSelectedQuantity(ingredient.quantity) }}
+                         <select class="form-control" ng-model="selectedQuantity" ng-options="quantity as quantity for quantity in quantities track by quantity" ng-change="updateSelectedQuantity(ingredient.mealingredientid, selectedQuantity)">
+                         </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="3">
+                          <select class="form-control" ng-model="selectedIngredient" ng-options="ingredient for ingredient in ingredients track by ingredient" ng-change="save(meal.id, selectedIngredient)">
+                              <option value="">-- choose ingredient --</option>
+                          </select>
+                      </td>
+                  </tr>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" align="center">
+            <a class="btn btn-primary" href="#/meals"><i class="fa fa-step-backward"></i> Back to Meals</a>
+        </div>
+        <div class="col-md-6" align="center">
+            <a class="btn btn-primary" href="#/print/{{ today }}/{{ mealtype }}"><i class="fa fa-print"></i> Print Grocery List</a>
+        </div>
+    </div>
+</div>

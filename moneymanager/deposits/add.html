@@ -1,0 +1,89 @@
+<nav class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/deposits_add">THE Money Manager</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse" ng-class="{collapse: isCollapsed}">
+    <ul class="nav navbar-nav">
+      <li><a href="#/summary">Summary</a></li>
+      <li class="active"><a href="#/deposits">Deposits</a></li>
+      <li><a href="#/categories">Categories</a></li>
+      <li><a href="#/account">Account</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-controller="loginController">
+      <li><a href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+    </ul>
+  </div><!--/.nav-collapse -->
+</nav>
+<div class="container">
+    <div class="row" id="tableheader" style="padding: 10px; border-radius: 50px">
+        <div class="col-md-6">
+            New Deposit
+        </div>
+        <div class="col-md-6">
+            <span class="pull-right">{{ today | date:"fullDate"}}</span>
+        </div>
+    </div>
+    <br>
+    <form class="form-inline">
+        <div class="row">
+           <div class="col-md-1"></div>
+           <div class="col-md-3">
+              <input ng-model="newDeposit.gross" name="gross-amount" type="number" class="form-control" min="0" step="any" placeholder="Enter gross amount">
+           </div>
+           <div class="col-md-3">
+              <input ng-model="newDeposit.net" name="net-amount" type="number" class="form-control" min="0" step="any" placeholder="Enter net amount">
+           </div>
+           <div class="col-md-3">
+              <button type="submit" class="btn btn-primary btn-block" ng-click="save()"><i class="fa fa-star"></i> Save</button>               
+           </div>
+        </div>
+    </form>
+    <hr>
+    <div class="row">
+        <div class="col-md-1 col-md-offset-2" style="text-align: center">
+            <div class="row" ng-repeat="year in years track by $index">
+                <div class="col-xs-12">
+                    <span ng-if="year == selectYear">{{ year }}</span>
+                    <span ng-if="year != selectYear" class="link" ng-click="setSelectYear(year)">{{ year }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-condensed table-stripped">
+              <tr>
+                  <td>
+                  </td>
+                  <td align="right">
+                      Date
+                  </td>
+                  <td align="right">
+                      Gross
+                  </td>
+                  <td align="right">
+                      Net
+                  </td>
+              </tr>
+              <tr ng-repeat="deposit in deposits | myDepositFilter:selectYear track by $index">
+                  <td align="right">
+                      <strong>{{ $index + 1 }}.</strong>
+                  </td>
+                  <td align="right">
+                      {{ deposit.edate | date:"MM/dd/yyyy" }}
+                  </td>
+                  <td align="right">
+                      {{ deposit.gross | currency }}
+                  </td>
+                  <td align="right">
+                      {{ deposit.net | currency }}
+                  </td>
+              </tr>
+            </table>
+        </div>
+    </div>
+</div>

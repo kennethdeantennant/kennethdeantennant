@@ -1,0 +1,51 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Menu Planner</a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+        <li><a class="pull-right" href="#/meals">Meals <i class="fa fa-bars"></i></a></li>
+        <li><a class="pull-right" href="#/account">Account <i class="fa fa-user"></i></a></li>
+        <li><a class="logout-link pull-right" href="#/">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+<ol class="breadcrumb">
+  <li>Welcome {{ userFirstName }}!</li>
+  <li class="active"><i class="fa fa-calendar-o"></i> Menus</li>
+</ol>
+
+<div class="container box">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="heading">View Menus</h1>
+            <div class="well well-sm">
+            Choose menu:&nbsp;&nbsp;
+            <input type="radio" name="rdoType" value="b" ng-model="mealtype"/>Breakfast&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="rdoType" value="l" ng-model="mealtype"/>Lunch&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="rdoType" value="d" ng-model="mealtype"/>Dinner
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-repeat="menu in menus | filter: {menu_type:mealtype}">
+        <div class="col-md-12">
+           <h4>{{ menu.menu_date | date:'MMMM d, yyyy' }} <span class="badge">{{ menu.meals }}</span><i class="fa fa-trash fa-lg pull-right" title="Click to remove menu" ng-click="deleteMenu(menu,menu.menu_date)"></i><i class="fa fa-print fa-lg pull-right" title="Click to print menu" ng-click="printMenu(menu,menu.menu_date)"></i></h4>
+             <table class="table table-striped table-bordered">
+                <tr ng-repeat="meal in meals | filter: {category:menu.menu_type} | filter: {mdate:menu.menu_date}">
+                    <td>
+                        {{ meal.name }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

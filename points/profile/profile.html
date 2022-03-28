@@ -1,0 +1,76 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Daily-Points Management</a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <span class="white">Welcome {{ userFirstName }}</span>&nbsp;&nbsp;
+    <li><a href="#/summary"><i class="fa fa-bars"></i> Summary</a></li>
+  <li class="active"><i class="fa fa-user"></i> Profile&nbsp;&nbsp;<span class="badge pull-right">{{ profile.selected.points }}</span></li>
+</ol>
+<div class="container well">
+    <div class="row">
+        <div class="col-xs-9">
+            <div class="alert alert-success" ng-if="message.length > 0">{{ message }}</div>
+            <strong>{{ today | date:'fullDate' }}</strong>
+        </div>
+        <div class="col-xs-3">
+            <a href="#/account"><i class="fa fa-id-card-o"></i> change username/password</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+           <form class="form-horizontal" method="post">
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Gender</label>
+                <div class="col-xs-3">
+                    <select ng-model="profile.selected.gender" class="form-control" ng-options="gender.description for gender in genders track by gender.id" ng-change="update('gender')" />
+                </div>
+                <label class="col-xs-2 control-label">Age</label>
+                <div class="col-xs-3">
+                    <select ng-model="profile.selected.age" class="form-control" ng-options="age.description for age in ages track by age.id" ng-change="update('age')" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Height</label>
+                <div class="col-xs-3">
+                    <select ng-model="profile.selected.height" class="form-control" ng-options="height.description for height in heights track by height.id" ng-change="update('height')" />
+                </div>
+                <label class="col-xs-2 control-label">Activity</label>
+                <div class="col-xs-3">
+                    <select ng-model="profile.selected.activity" class="form-control" ng-options="activity.description for activity in activities track by activity.id" ng-change="update('activity')" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Weight</label>
+                <div class="col-xs-3">
+                    <div class="input-group">
+                      <input ng-model="profile.selected.weight" type="number" min="0" max="999" maxlength="3" class="form-control" id="weight" placeholder="Enter weight..." title="Points added from the first two digits">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="update('weight')">Save!</button>
+                      </span>
+                    </div>
+                </div>
+                <label class="col-xs-2 control-label">Mode</label>
+                <div class="col-xs-3">
+                    <select ng-model="profile.selected.mode" class="form-control" ng-options="mode.description for mode in modes track by mode.id" ng-change="update('mode')" />
+                </div>
+            </div>
+           </form>
+        </div>
+    </div>
+</div>

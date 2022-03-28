@@ -1,0 +1,68 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="#">My Journal <span style="font-size: small; padding-left: 20px; font-family: cursive;">(welcome {{ userFirstName }})</span></a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/account">Account <i class="fa fa-user"></i></a></li>
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <li class="active"><i class="fa fa-book"></i> Entries</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 journal-summary">
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <!-- Calendar Start -->
+                            <calendar>
+                                <div class="header">
+                                    <i class="fa fa-angle-left" ng-click="previous()"></i>
+                                    <span>{{month.format("MMMM YYYY")}}</span>
+                                    <i class="fa fa-angle-right" ng-click="next()" ng-if="showNext"></i>
+                                </div>
+                                <div class="week names">
+                                    <span class="day">Sun</span>
+                                    <span class="day">Mon</span>
+                                    <span class="day">Tue</span>
+                                    <span class="day">Wed</span>
+                                    <span class="day">Thu</span>
+                                    <span class="day">Fri</span>
+                                    <span class="day">Sat</span>
+                                </div>
+                                <div class="week" ng-repeat="week in weeks">
+                                    <span class="day" ng-class="{ entry: day.hasEntry, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(chosen) }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+                                </div>
+                            </calendar>
+                            <!-- Calendar End -->
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div ng-repeat="entry in entries | myEntryDateFilter:chosen track by $index">
+                        <span class="day-of-week"><a href='#/entry/{{ entry.edate }}' class="edit-entry-link"><i class="fa fa-pencil" title="edit"></i></a> {{ dayOfWeek( entry.edate ) }}, {{ dayFromDate( entry.edate ) }}<sup>{{ nthDay( entry.edate ) }}</sup></span>
+                        <span ng-if="entry.topic.length > 0"><strong>[ {{ entry.topic }} ]</strong></span>
+                        <br />
+                        <p class="text-entry" ng-repeat="para in split( entry.entry )">{{ para }}</p>
+                        <br />
+                        <span class="word-count pull-right">{{ doWordCount( entry.entry ) }} words</span><br />
+                    </div>
+                    <div class="alert alert-info" ng-if="show"><a class="logout-link" href="#/entry/{{chosen.format('YYYY-MM-DD')}}" title="Add Entry"> <i class="fa fa-plus-square"></i></a> NO ENTRY EXISTS FOR THE {{ chosen.format("D") }}<sup>{{ nthDay( chosen.format("YYYY-MM-DD") ) }}</sup></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

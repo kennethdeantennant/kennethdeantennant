@@ -1,0 +1,304 @@
+.body {
+	background-color : white;
+}
+
+.page {
+	font-family: verdana, arial, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	background-color: white;
+	color: black;
+	border-bottom : outset 3px Black;
+	border-left : outset 3px Black;
+	border-top : outset 1px Black;
+	border-right : outset 1px Black;
+}
+
+.heading {
+	font-family: cursive;
+	font-size: 18pt;
+	font-weight: bolder;
+	letter-spacing: 1px;
+	padding: 0px 0px 0px 10px;
+	vertical-align : middle;
+}
+
+.day {
+	font-family: Verdana;
+	font-size: 10pt;
+	font-weight: bolder;
+	color: #000000;
+	letter-spacing: 1px;
+}
+
+.data {
+	font-family: Verdana;
+	font-size: 10pt;
+	font-weight: normal;
+	color: #000000;
+	letter-spacing: 1px;
+}
+
+.dataSmall {
+	font-family: Verdana;
+	font-size: 9pt;
+	font-weight: normal;
+	color: #000000;
+	letter-spacing: 1px;
+}
+
+.calendarHeader {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: bolder;
+	letter-spacing: 1px;
+	background-color: #000000;
+	color: #FFF;
+}
+
+.smallText {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #333;
+}
+
+.lists {
+	font-family: Courier;
+	font-size: 14pt;
+	font-weight: normal;
+	color: #000000;
+	letter-spacing: 1px;
+}
+
+.messages {
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	color: red;
+	letter-spacing : 2px;
+}
+
+.button {
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	background-color: navy;
+	color: #fff;
+	padding: 3px 3px 3px 3px;
+	margin: 2px;
+	border-top: outset 2px white;
+	border-right: outset 2px #069;
+	border-bottom: outset 2px #069;
+	border-left: 2px outset white;
+	letter-spacing : 2px;
+}
+
+a.mainLink:link {
+	color: #090;
+	text-decoration:none;
+	font-size : 16pt;
+	font-weight: bolder;
+	font-family: verdana;
+}
+
+a.mainLink:visited {
+	color: #090; 
+	text-decoration:none;
+	font-size: 16pt;
+	font-weight: bolder;
+	font-family: verdana;
+}
+
+a.mainLink:hover {
+	color: #FF0000;
+	text-decoration: underline;
+	font-size: 16pt;
+	font-weight: bolder;
+	font-family: verdana;
+}
+
+
+a.yearLink:link {
+	color: #FFFFFF;
+	text-decoration:none;
+	font-size : 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+	background-color: #FF0000;
+	padding:5px;
+}
+
+a.yearLink:visited {
+	color: #FFFFFF; 
+	text-decoration:none;
+	font-size: 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+	background-color: #FF0000;
+	padding:5px;
+}
+
+a.yearLink:hover {
+	color: navy;
+	text-decoration: underline;
+	font-size: 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+	background-color: #FFFFFF;
+	padding:5px;
+}
+
+a.nextMonth:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: bolder;
+	background-color: #000000;
+	color: #FFF;;
+	letter-spacing: 1px;
+	text-decoration:none;
+}
+
+a.nextMonth:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: bolder;
+	background-color: #000000;
+	color: #FFF;;
+	letter-spacing: 1px;
+	text-decoration:none;
+}
+
+a.smallLink:link {
+	font-family: Verdana;
+	font-size: 12px;
+	color: #090;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+a.smallLink:visited {
+	font-family: Verdana;
+	font-size: 12px;
+	color: #090;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+a.smallLink:hover {
+	font-family: Verdana;
+	font-size: 12px;
+	color: #090;
+	text-decoration:underline;
+	font-weight: bolder;
+}
+
+a.calendarLink:link {
+	color: navy;
+	text-decoration:none;
+	font-size : 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+	letter-spacing: 1px;
+}
+
+a.calendarLink:visited {
+	color: navy; 
+	text-decoration:none;
+	font-size: 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+	letter-spacing: 1px;
+}
+
+a.calendarLink:hover {
+	color: green;
+	text-decoration: underline;
+	font-size: 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+	letter-spacing: 1px;
+}
+
+a.dateLink:link {
+	color: navy;
+	text-decoration:none;
+	font-size : 10pt;
+	font-weight: bolder;
+	font-family: Verdana;
+	letter-spacing: 1px;
+}
+
+a.dateLink:visited {
+	color: navy; 
+	text-decoration:none;
+	font-size: 10pt;
+	font-weight: bolder;
+	font-family: Verdana;
+	letter-spacing: 1px;
+}
+
+a.dateLink:hover {
+	color: green;
+	text-decoration: none;
+	font-size: 10pt;
+	font-weight: bolder;
+	font-family: Verdana;
+	letter-spacing: 1px;
+}
+
+a.printLink:link {
+	color: navy;
+	text-decoration:none;
+	font-size : 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+}
+
+a.printLink:visited {
+	color: navy; 
+	text-decoration:none;
+	font-size: 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+}
+
+a.printLink:hover {
+	color: #FF0000;
+	text-decoration: underline;
+	font-size: 9pt;
+	font-weight: bolder;
+	font-family: verdana;
+}
+
+.error {
+	font-family:verdana,arial;
+	font-size: 10pt;
+	font-weight: bold;
+	color:red;
+}
+
+.box{
+	border-left : 0px;
+	border-right : 0px;
+	border-top : 0px;
+	border-bottom : 1px solid Black;
+}
+
+.textarea{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+
+.entryTable{
+	border-top-width: thin;
+	border-bottom-width: thin;
+	border-top-style: solid;
+	border-bottom-style: solid;
+}
+
+.words{
+	text-align: right;
+}

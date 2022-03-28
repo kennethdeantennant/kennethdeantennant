@@ -1,0 +1,93 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="#">My Journal <span style="font-size: small; padding-left: 20px; font-family: cursive;">(welcome {{ userFirstName }})</span></a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/entries">Entries <i class="fa fa-book"></i></a></li>
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <li class="active"><i class="fa fa-user"></i> Account</li>
+</ol>
+<div class="container">
+    <div class="row well">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert" ng-show="error.length > 0">{{ error }}</div>
+            <div class="alert alert-success" role="alert" ng-show="message.length > 0">{{ message }}</div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">User Name</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.username" type="text" id="rgusername" name="rgusername" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">Password</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.password" type="password" id="rgpassword" name="rgpassword" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">Confirm Password</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.confirmpassword" type="password" id="confirmPassword" name="confirmPassword" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">First Name</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.firstName" type="text" id="firstName" name="firstName" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Middle Name</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.middleName" type="text" id="middleName" name="middleName" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">Last Name</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.lastName" type="text" id="lastName" name="lastName" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">Phone</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.phoneNumber" type="tel" id="phone" name="phone" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Alternate Phone</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.altPhoneNumber" type="tel" id="altPhone" name="altPhone" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required-field">Email</label>
+                    <div class="col-sm-6">
+                        <input ng-model="user.email" type="tel" id="email" name="email" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4 col-sm-6 col-sm-offset-4">
+                    <button type="submit" class="btn btn-primary btn-block" ng-click="save()"><span class="glyphicon glyphicon-star"></span> Save</button>
+                    </div>
+                </div>
+                <div ng-messages="user.confirmPassword.$error"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>

@@ -1,0 +1,42 @@
+<nav ng-controller="loginController" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-book"></i> View My Recipe </a>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container thumbnail">
+    <div class="row">
+        <br>
+        <div class="col-xs-10 col-xs-offset-1">
+            <div id="dcategory">
+                <span class="dcategory">{{ name }}</span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <img ng-if="image != 'unavailable.gif' && image != ''" class="thumbnail" ng-src="{{ image }}">
+            <ul>
+                <li ng-repeat="ingredient in ingredients">
+                    {{ ingredient.description }}
+                </li>
+            </ul>
+            <ol>
+                <li ng-repeat="instruction in instructions">
+                    {{ instruction.description }}
+                </li>
+            </ol>
+            <hr>
+            {{ tips }}
+        </div>
+    </div>
+</div>

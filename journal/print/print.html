@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="#">My Journal <span style="font-size: small; padding-left: 20px; font-family: cursive;">(welcome {{ userFirstName }})</span></a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/entries">Entries <i class="fa fa-book"></i></a></li>
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <li class="active"><i class="fa fa-print"></i> Print</li>
+</ol>
+<div class="container">
+    <div class="row well">
+        <div class="col-md-12">
+            Print Entries
+        </div>
+    </div>
+</div>
+<br>

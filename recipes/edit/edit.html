@@ -1,0 +1,111 @@
+<nav ng-controller="loginController" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-book"></i> Edit My Recipe </a>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row alert alert-success" ng-if="message.length > 0">
+        <div class="col-xs-12">
+            <i class="fa fa-check"></i> {{ message }}
+        </div>
+    </div>
+</div>
+<div class="container thumbnail">
+    <br>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <button class="btn btn-warning btn-block" ng-click="close()">Finished</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            {{ setSelectedCategory(category) }}
+            <select class="form-control" ng-model="selectedCategory" ng-options="category.name as category.name for category in categories track by category.name" ng-change="updateSelectedCategory(selectedCategory)">
+              <option value="">-- choose ingredient --</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Name:</span>
+              <input ng-model="name" type="text" class="form-control" value="{{ name }}">
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="updateName()">Save</button>
+              </span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Image:</span>
+              <input ng-model="image" type="text" class="form-control" />
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="updateImage()">Save</button>
+              </span>
+            </div>
+            <br>
+            <ul>
+                <li ng-repeat="ingredient in ingredients">
+                    {{ ingredient.description }} <i class="fa fa-edit link" ng-click="editObject(ingredient)" title="edit"></i> <i class="fa fa-trash link" ng-click="deleteIngredient(ingredient)" title="delete"></i>
+                </li>
+            </ul>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Ingredient:</span>
+              <input ng-model="newIngredient" type="text" class="form-control" placeholder="Enter ingredient" />
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="saveIngredient(newIngredient)">Save</button>
+              </span>
+            </div>
+            <br>
+            <ol>
+                <li ng-repeat="direction in directions">
+                    {{ direction.description }} <i class="fa fa-edit link" ng-click="editObject(direction)" title="edit"></i> <i class="fa fa-trash link" ng-click="deleteDirection(direction)" title="delete"></i>
+                </li>
+            </ol>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Direction:</span>
+              <input ng-model="newDirection" type="text" class="form-control" placeholder="Enter direction"/>
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="saveDirection(newDirection)">Save</button>
+              </span>
+            </div>
+            <br>
+            {{ tips }} <i ng-if="tips != null" class="fa fa-trash link" ng-click="deleteTips(tips)" title="delete"></i>
+            <br ng-if="tips != null"><br ng-if="tips != null">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Tips:</span>
+              <input ng-model="newTips" type="text" class="form-control" placeholder="Enter additional tips..."/>
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="saveTips(newTips)">Save</button>
+              </span>
+            </div>
+            <br>
+            <button type="button" class="btn btn-danger btn-block" ng-click="delete()"><i class="fa fa-trash"></i> Delete</button>
+        </div>
+    </div>
+    <br>
+    <div class="row" ng-show="showEditField">
+        <div class="col-xs-12">
+            <div class="input-group">
+              <input ng-model="newDescription" type="text" class="form-control" />
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="update()">Save</button>
+              </span>
+            </div>
+        </div>
+    </div>
+</div>

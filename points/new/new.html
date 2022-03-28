@@ -1,0 +1,98 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Daily-Points Management</a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/key/{{today}}" title="Look up point value for a specific ingredient">Key <i class="fa fa-key"></i></a></li>
+          <li><a class="logout-link pull-right" href="http://www.calculatorcat.com/free_calculators/weight_watchers_calculator.phtml" title="Calculate points total for a particular item" target="_blank">Calculator <i class="fa fa-calculator"></i></a></li>
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <span class="white">Welcome {{ userFirstName }}</span>&nbsp;&nbsp;
+    <li><a href="#/summary"><i class="fa fa-bars"></i> Summary</a></li>
+    <li><a href="#/manage/{{today}}"><i class="fa fa-pencil"></i> Record</a></li>
+    <li class="active"><i class="fa fa-star"></i> New</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-success" ng-if="message.length > 0">{{ message }}</div>
+            <div class="row">
+                <div class="col-xs-10">
+                    <form class="form-horizontal" method="post">
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Description</label>
+                            <div class="col-xs-9">
+                                <input ng-model="newfood.description" type="text" class="form-control" ng-blur="check()" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Type</label>
+                            <div class="col-xs-3">
+                                <select ng-model="newfood.type" class="form-control" ng-options="type.description for type in types track by type.code" ng-change="check()" required>
+                                    <option value="">--- Select Type ---</option>
+                                </select>
+                            </div>
+                            <label class="col-xs-2 control-label">Point(s)</label>
+                            <div class="col-xs-2">
+                                <select ng-model="newfood.points" class="form-control" ng-options="point.point for point in pointValues track by point.point" ng-change="check()" required />
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="isDisabled"><i class="fa fa-star"></i> Save</button>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-bordered table-stripped">
+                        <tr>
+                            <th>
+                                
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Points
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                        </tr>
+                        <tr ng-repeat="food in foods">
+                            <td width="30px">
+                                <i class="fa fa-trash link" ng-click="delete(food.id, food.description)" title="Remove food item"></i>
+                            </td>
+                            <td>
+                                {{ food.description }}
+                            </td>
+                            <td align="right">
+                                {{ food.points }}
+                            </td>
+                            <td ng-if="food.type == 'M' ">
+                                Meal
+                            </td>
+                            <td ng-if="food.type == 'I' ">
+                                Item
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

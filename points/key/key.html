@@ -1,0 +1,86 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Daily-Points Management</a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <span class="white">Welcome {{ userFirstName }}</span>&nbsp;&nbsp;
+    <li><a href="#/summary"><i class="fa fa-bars"></i> Summary</a></li>
+    <li><a href="#/manage/{{today}}"><i class="fa fa-pencil"></i> Record</a></li>
+    <li><a href="#/new/{{today}}"><i class="fa fa-star"></i> New</a></li>
+    <li class="active"><i class="fa fa-key"></i> Key</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-success" ng-if="message.length > 0">{{ message }}</div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 well">
+                    <form class="form-horizontal" method="post">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Ingredient Name</label>
+                            <div class="col-xs-3">
+                                <input ng-model="keyingredient.description" type="text" class="form-control" ng-blur="check()" required />
+                            </div>
+                            <label class="col-xs-2 control-label">1 Cup Points</label>
+                            <div class="col-xs-3">
+                                <input ng-model="keyingredient.points" type="number" class="form-control" required />
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="isDisabled"><i class="fa fa-star"></i> Save</button>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 well" align="center">
+                    <em>All ingredients entered in is based on a 1 cup serving.  To figure out tablespoon and teaspoon equivalent points, take the number listed for the ingredient and divide by 16 for tablespoons and 48 for teaspoons.</em>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-bordered table-stripped">
+                        <tr>
+                            <th>
+                                
+                            </th>
+                            <th>
+                                Ingredient Name
+                            </th>
+                            <th>
+                                Points
+                            </th>
+                        </tr>
+                        <tr ng-repeat="ingredient in ingredients">
+                            <td width="30px">
+                                <i class="fa fa-trash link" ng-click="delete(ingredient.id, ingredient.description)" title="Remove ingredient item"></i>
+                            </td>
+                            <td>
+                                {{ ingredient.description }}
+                            </td>
+                            <td>
+                                1 Cup: {{ ingredient.points }}<br>
+                                1 Tbl: {{ tablespoon(ingredient.points) }}<br>
+                                1 Tsp: {{ teaspoon(ingredient.points) }}<br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

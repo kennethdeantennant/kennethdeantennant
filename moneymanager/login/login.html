@@ -1,0 +1,63 @@
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <img src="images/logo.png" class="logo" alt="THE Money Manager Tool" />
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <div class="alert alert-danger" ng-if="message.length > 0">{{ message }}</div>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <form class="form-horizontal" method="post" id="login-form">
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <input type="text" class="form-control" ng-model="username" placeholder="Enter username" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <input type="password" class="form-control" ng-model="password" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="col-xs-8 col-xs-offset-2">
+                    <button type="submit" class="btn btn-primary btn-block" ng-click="login()">Login <i class="fa fa-sign-in"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8 text-center well">
+            <hr  />
+            <p class="directions">To get a taste for this money management tool,
+                type in <span class="bold-italic">username</span> for username and <span class="bold-italic">password</span> for password.
+                <p class="directions"><span class="bold-italic">BEWARE: casing for the username and password can have an impact on logging in</span>
+            </p>
+            <hr />
+            <p class="text-center">Don't have an account?<br /><a class="main" href="#/account">Register</a> for free!</p>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>

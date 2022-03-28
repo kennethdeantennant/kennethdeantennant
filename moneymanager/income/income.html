@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/summary">THE Money Manager</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse" ng-class="{collapse: isCollapsed}">
+    <ul class="nav navbar-nav">
+      <li><a href="#/summary">Summary</a></li>
+      <li><a href="#/deposits">Deposits</a></li>
+      <li><a href="#/categories">Categories</a></li>
+      <li><a href="#/account">Account</a></li>
+      <li><a href="#/expenses">Expenses</a></li>
+      <li class="active"><a href="#/income">Incomes</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-controller="loginController">
+      <li><a href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+    </ul>
+  </div><!--/.nav-collapse -->
+</nav>
+<div class="container">
+    <table class="table table-striped table-borders table-condensed">
+        <thead>
+            <tr id="tableheader">
+                <td align="right">
+                    Year
+                </td>
+                <td align="right">
+                    Gross
+                </td>
+                <td align="right">
+                    Net
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="income in incomes">
+                <td align="right">
+                    {{ income.year }}
+                </td>
+                <td align="right">
+                    {{ income.gross | currency }}
+                </td>
+                <td align="right">
+                    {{ income.net | currency }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--<div class="alert alert-danger" role="alert" ng-show="categories.length <= 0">Welcome...click <a href="#/deposits_add">here</a> to start a new deposit!</div>-->
+</div>

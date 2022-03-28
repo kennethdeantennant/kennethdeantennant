@@ -1,0 +1,44 @@
+<?php
+	$email = ["txtEmail"];
+	$name = ["txtName"];
+	$header =  "From: $email\r\nMIME-Version: 1.0\r\nContent-type: text/html; charset=iso-8859-1\n";
+	$to = "circ2@mindspring.com";
+	$subject = ["txtSubject"];
+	$message = ["txtComments"];
+	
+	if(["lstResponse"]=="Yes")
+		{
+			$message = "<style>
+		a.mainLink:link {
+			color: 'navy';
+			text-decoration:none;
+			font-size : 10pt;
+			font-weight: bolder;
+			font-family: verdana;
+		}
+		
+		a.mainLink:visited {
+			color:'navy'; 
+			text-decoration:none;
+			font-size:10pt;
+			font-weight: bolder;
+			font-family: verdana;
+		}
+		
+		a.mainLink:hover {
+			color:#FF6347;
+			text-decoration:none;
+			font-size:10pt;
+			font-weight:folder;
+			font-family: verdana;
+		}
+	</style><p>$message<p><p><hr><a href='mailto:$email' class='mainLink'>Please Reply to $name</a>.";
+		}
+		
+	/* To send HTML mail, you can set the Content-type header. */
+//	$headers  = ;
+//	$headers .= ;
+//	$headers = "From: $name [$email]\n";
+	mail($to, $subject, $message, $header);
+	header("Location: feedback.php");
+?>

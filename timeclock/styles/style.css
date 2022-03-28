@@ -1,0 +1,628 @@
+.body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	background-color: #000;
+	background-image:url(../images/clock_bg.jpg);
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+
+.block{
+	display: table; 
+	height: 400px;  
+	#position: relative; 
+	overflow: hidden;
+	top: 5%;
+}
+
+.notification{
+	color:#FF0000;
+	font-weight:bolder;
+}
+
+.secondaryHeader{
+	font-weight: bolder;
+	background-color: #663300;
+	color:#FFFFFF;
+}
+
+.row {
+	background-color: #FFFBF0;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.date {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color: #000000;
+	font-weight: bolder;
+	padding: 3px;
+}
+
+.sidecell {
+	padding: 3px;
+	vertical-align: bottom;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+}
+.sidecellSelected {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #669900;
+	background-position: right;
+	padding-top: 1px;
+	padding-right: 3px;
+	padding-bottom: 1px;
+	padding-left: 3px;
+}
+
+.header {
+	background-color: #CCCCCC;
+	color: #000000;
+	padding: 3px;
+	text-transform: none;
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+
+
+.errorCell {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+a.side:link {
+	color: #FFFFFF;
+	text-decoration:none;
+	font-size : 10pt;
+	letter-spacing: 1px;
+	font-family: verdana;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a.side:hover {
+	color: #FFFF00;
+	text-decoration: underline;
+	font-size: 10pt;
+	font-family: verdana;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+a.side:visited {
+	color: #FFFFFF; 
+	text-decoration:none;
+	font-size: 10pt;
+	font-family: verdana;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a.misspunch:link {
+	color: white;
+	background-color: red;
+	text-decoration:none;
+	font-size : 10pt;
+	letter-spacing: 1px;
+	font-family: verdana;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a.misspunch:visited {
+	color: white;
+	background-color: red;
+	text-decoration: underline;
+	font-size: 10pt;
+	font-family: verdana;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a.misspunch:hover {
+	color: white;
+	background-color: #330066;
+	text-decoration:none;
+	font-size: 10pt;
+	font-family: verdana;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.punch {
+	text-decoration:none;
+	font-size : 10pt;
+	letter-spacing: 1px;
+	font-family: verdana;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-decoration: none;
+	background-color: #FFFFFF;
+	padding: 1px 1px 1px 1px;
+	margin: 1px;
+	border: 2px ridge #CC0000;
+	width: 103px;
+	cursor: pointer;
+}
+
+a.logout:link {
+	color: maroon;
+	text-decoration:none;
+	font-size : 9pt;
+	font-family: verdana;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+a.logout:visited {
+	color: #660000; 
+	text-decoration:none;
+	font-size: 9pt;
+	font-family: verdana;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.logout:hover {
+	color: #0000FF;
+	text-decoration: underline;
+	font-size: 9pt;
+	font-family: verdana;
+	text-decoration: underline;
+}
+
+a:link {
+	color: navy;
+	text-decoration:none;
+	font-size : 9pt;
+	font-family: verdana;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+a:visited {
+	color: navy; 
+	text-decoration:none;
+	font-size: 9pt;
+	font-family: verdana;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: navy;
+	text-decoration: underline;
+	font-size: 9pt;
+	font-family: verdana;
+	text-decoration: underline;
+}
+
+.button {
+	font-size: 11px;
+	background-color: #CCCCCC;
+	color: #000000;
+	padding: 2px 2px 2px 2px;
+	margin: 2px;
+	border-top: outset 2px white;
+	border-right: outset 2px #069;
+	border-bottom: outset 2px #069;
+	border-left: 2px outset white;
+	letter-spacing : 2px;
+	cursor: pointer;
+}
+
+.headerSmall {
+
+	background-color: #CCCCCC;
+	color: #000000;
+	padding: 3px;
+	text-transform: none;
+	font-weight: bolder;
+	font-size: 12px;
+}
+
+.smalltext {
+	color: #000000;
+	text-transform: none;
+	font-weight: bolder;
+	font-size: 9px;
+}
+
+div#commentForm{
+	margin: 0px 20px 0px 20px;
+	display: none;
+}a.main:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFF00;
+	text-decoration: none;
+}
+a.main:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFF00;
+	text-decoration: none;
+}
+a.main:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.log:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #660000;
+	text-decoration: none;
+}
+
+a.log:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #660000;
+	text-decoration: none;
+}
+
+a.log:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #660000;
+	text-decoration: underline;
+}
+
+.formObject {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+a.subside:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	background-color: #CCFFCC;
+	text-decoration: none;
+}
+
+a.subside:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	background-color: #CCFFCC;
+	text-decoration: none;
+}
+
+
+a.subside:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	background-color: #CCFFCC;
+	text-decoration: underline;
+}
+
+.subsideSelect {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #CCFFCC;
+	padding-left: 15px;
+	font-weight: bolder;
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 2px;
+}
+.subsideMenu {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	background-color: #CCFFCC;
+	padding-left: 15px;
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 2px;
+}
+
+.caltexthighlight{
+   color: #FFFFFF;
+   text-align: center;
+   background-color: #669900;
+   font-size: 0.9em;
+   font-family: arial, helvetica;
+   font-weight: bold;
+   cursor: default;
+   text-decoration: none;
+   vertical-align: middle;
+ }
+ 
+.caltext{
+FONT-WEIGHT: normal;
+FONT-SIZE: 0.9em;
+COLOR: #666666;
+FONT-STYLE: normal;
+FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+TEXT-DECORATION: none;
+PADDING-BOTTOM: 5px
+}
+.calendarheader{
+	FONT-SIZE: 0.7em;
+	COLOR: #000000;
+	FONT-STYLE: normal;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none
+}
+  
+.calendar{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 0.7em;
+	COLOR: #000000;
+	FONT-STYLE: normal;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none
+}
+
+A.calendar:link{
+FONT-SIZE: 0.8em;
+COLOR: black;
+FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+TEXT-DECORATION: none;
+}
+A.calendar:hover{
+FONT-SIZE: 0.8em;
+FONT-STYLE: normal;
+FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+TEXT-DECORATION: none;
+background-color: #006600;
+color: #FFFFFF;
+}
+A.calendar:visited{
+FONT-WEIGHT: normal;
+FONT-SIZE: 0.8em;
+COLOR: black;
+FONT-STYLE: normal;
+FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+TEXT-DECORATION: none;
+}
+
+A.calendarArrow:link{
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none;
+}
+
+.calendartoday{
+FONT-WEIGHT: bolder;
+FONT-SIZE: 0.9em;
+COLOR: #9C0000;
+FONT-STYLE: normal;
+FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+TEXT-DECORATION: underline
+}
+div#calendarForm{
+margin: 0px 0px 0px 0px;
+display: none;
+}
+div#calword{
+margin: 0px 0px 0px 0px;
+display: block;
+}
+
+a.subsideSelectCal:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #669900;
+	background-position: right;
+	padding-top: 1px;
+	padding-right: 3px;
+	padding-bottom: 1px;
+	padding-left: 3px;
+	text-decoration:none;
+}
+a.subsideSelectCal:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #669900;
+	background-position: right;
+	padding-top: 1px;
+	padding-right: 3px;
+	padding-bottom: 1px;
+	padding-left: 3px;
+	text-decoration:none;
+}
+a.subsideSelectCal:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #669900;
+	background-position: right;
+	padding-top: 1px;
+	padding-right: 3px;
+	padding-bottom: 1px;
+	padding-left: 3px;
+	text-decoration:none;
+}
+
+.monthlyTitle{
+	background-color:black;
+	color:white;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+}
+
+a.monthlyTitleArrow:link{
+	background-color:black;
+	color:white;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration:none;
+}
+
+a.monthlyTitleArrow:visited{
+	background-color:black;
+	color:white;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration:none;
+}
+
+a.monthlyTitleArrow:hover{
+	background-color:black;
+	color:white;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration:underline;
+}
+
+a.monthlyTitleWeek:link{
+	background-color:silver;
+	color:black;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration:none;
+}
+
+a.monthlyTitleWeek:visited{
+	background-color:silver;
+	color:black;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration:none;
+}
+
+a.monthlyTitleWeek:hover{
+	background-color:gray;
+	color:white;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration:none;
+}
+
+.selectedMonth{
+	background-color:gray;
+	color:white;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bolder;
+}
+
+.monthlyheader{
+	FONT-SIZE: 1.0em;
+	COLOR: #000000;
+	FONT-STYLE: normal;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none
+}
+  
+.monthly{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 0.9em;
+	COLOR: #000000;
+	FONT-STYLE: normal;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none
+}
+
+A.monthly:link{
+	FONT-SIZE: 1.0em;
+	COLOR: black;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none;
+	font-weight:bolder;
+}
+
+A.monthly:hover{
+	FONT-SIZE: 1.0em;
+	FONT-STYLE: normal;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: underline;
+	color: navy;
+	font-weight:bolder;
+}
+
+A.monthly:visited{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 1.0em;
+	COLOR: black;
+	FONT-STYLE: normal;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	TEXT-DECORATION: none;
+	font-weight:bolder;
+}
+
+.monthlyrow {
+	background-color: silver;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+A.week:link{
+	background-color: #000000;
+}
+
+A.week:hover{
+	background-color: #FFFBF0;
+}
+
+A.week:visited{
+	background-color: #FFFBF0;
+}
+
+.selectionBox{
+	width: 200px;
+}

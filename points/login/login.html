@@ -1,0 +1,39 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-3 text-center well">
+            <div class="title">
+                Daily-Points Management
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="alert alert-danger" ng-if="message.length > 0">{{ message }}</div>
+            <form class="form-horizontal" method="post" id="login-form">
+                <div class="form-group">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <input type="text" class="form-control" ng-model="username" placeholder="Enter username" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <input type="password" class="form-control" ng-model="password" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-xs-offset-3">
+                    <button type="submit" class="btn btn-primary btn-block" ng-click="login()">Login <i class="fa fa-sign-in"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-3 text-center well">
+            <hr  />
+            <p class="directions">If you are a registered user, type in your username and password to login; otherwise, type in username for Username and password for Password to login as a generic user.</p>
+            </p>
+            <hr />
+            <!--<p class="text-center">Don't have an account?<br /><a class="main" href="#/account">Register</a> for free!</p>-->
+        </div>
+    </div>
+</div>

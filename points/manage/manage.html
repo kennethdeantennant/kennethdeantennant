@@ -1,0 +1,69 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Daily-Points Management</a>
+    </div>
+    <div class="collapse navbar-collapse" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav pull-right">    
+          <li><a class="logout-link pull-right" href="#/new/{{ today }}" title="Add New">New Food <i class="fa fa-plus-circle"></i></a></li>
+          <li><a class="logout-link pull-right" href="#/" ng-click="logout()">Sign out <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<ol class="breadcrumb">
+  <span class="white">Welcome {{ userFirstName }}</span>&nbsp;&nbsp;
+    <li><a href="#/summary"><i class="fa fa-bars"></i> Summary</a></li>
+    <li class="active"><i class="fa fa-pencil"></i> Entrty <span class="badge">{{ profile.selected.points }}</span></li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-9">
+                    <form class="form-horizontal" method="post">
+                        <div class="form-group" ng-show="selectedDates.length>0">
+                            <label class="col-xs-3 control-label">View By Date</label>
+                            <div class="col-xs-9">
+                                <select ng-model="selectedDate" class="form-control" ng-options="date.date for date in selectedDates track by date.date" ng-change="selected(selectedDate)"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Add Food Item</label>
+                            <div class="col-xs-9">
+                                <select ng-model="selectedFood" class="form-control" ng-options="food.fulldescription for food in foods track by food.id" ng-change="add()">
+                                    <option value="">--- Please select item ---</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                    <div class="alert alert-info">
+                        <strong>Available:</strong> {{ profile.selected.points - total }}&nbsp;&nbsp;&nbsp;&nbsp;<strong>Used:</strong> {{ total }}
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="alert alert-success" ng-if="message.length > 0">{{ message }}</div>
+                </div>
+            </div>            
+            <div class="alert alert-warning alert-sm" ng-if="selectedFoods.length <= 0">No Points Used...</div>
+            <div class="well" ng-if="selectedFoods.length>0">
+                <div class="row" ng-repeat="food in selectedFoods track by $index">
+                    <div class="col-xs-10">
+                        <i class="fa fa-trash link" ng-click="delete(food.daily_id)" title="Remove food item"></i> {{ food.points }} - {{ food.description }} <i class="fa fa-plus link" ng-click="repeat(food.daily_id)" title="repeat..."></i> <i class="fa fa-minus link" ng-click="remove(food.daily_id)" title="remove..." ng-show="food.quantity > 1"></i>
+                    </div>           
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

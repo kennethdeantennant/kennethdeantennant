@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" style="padding: 10px;">
+            <span ng-click="setSelectedLetter('')" class="link">ALL</span>&nbsp;&mdash;
+            <span ng-repeat="letter in letters">
+                <span ng-if="hasRecipes(letter)" ng-click="setSelectedLetter(letter)" class="link">{{ letter }}</span><span ng-if="!hasRecipes(letter)">{{ letter }}</span>
+            </span>
+            <!--<a href="rtflite/RecipeBook.rtf" class="badge pull-right">Download Recipe Book</a>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 selectedLetter">
+            <span ng-show="viewHeader">Selected Letter: {{ selectedLetter }}</span>
+            <span ng-hide="viewHeader">Selected Letter: All</span>
+            <form class="form-inline pull-right" ng-click="search()">
+              <div class="form-group">
+                <label>Search</label>
+                <input type="text" class="form-control" id="searchValue" placeholder="Search..." ng-model="searchValue">
+              </div>
+              <button type="submit" class="btn btn-default">Sign in</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="row" ng-repeat="category in categories" align="right">
+                {{ checkViewCategory(category.name) }}
+                <div class="col-xs-12" ng-show="viewCategory">
+                    <i class="fa fa-trash link" ng-click="deleteCategory(category.id)" ng-hide="hasRecipesForCategory( category.id )"></i> <span class="selectedCategory" class="selectedCategory">{{ category.name }}</span>
+                </div>
+                <div class="col-xs-12 link" ng-hide="viewCategory">
+                    <i class="fa fa-trash link" ng-click="deleteCategory(category.id)" ng-hide="hasRecipesForCategory( category.id )"></i> <span ng-click="setSelectedCategory( category )">{{ category.name }}</span>
+                </div>
+            </div>
+            <div ng-show="showCategoryText" class="input-group">
+              <input ng-model="newCategory" type="text" class="form-control" autofocus />
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="addCategory()">Save</button>
+              </span>
+            </div>
+            <div align="right" ng-hide="showCategoryText">
+                <button type="button" href="#/edit/{{recipe.id}}" class="btn btn-link" ng-show="isLoggedIn()" ng-click="showCategoryText=true"><i class="fa fa-plus"></i> Add</button>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="row thumbnail" ng-repeat="recipe in recipes | startsWithAndMatch:selectedLetter:selectedCategory">
+                <div class="col-xs-12">
+                    <img class="thumbnail" ng-if="recipe.image != 'unavailable.gif' && recipe.image != ''" ng-src="{{ recipe.image }}">
+                    <h1>{{ recipe.name }}</h1>
+                    <ul ng-if="recipe.image == 'unavailable.gif' || recipe.image == ''">
+                        <li ng-repeat="detail in details | filter:{recipe_id:recipe.id, type:'I'}:true">{{ detail.description }}</li>
+                    </ul>
+                    <ol ng-if="recipe.image == 'unavailable.gif' || recipe.image == ''">
+                        <li ng-repeat="detail in details | filter:{recipe_id:recipe.id, type:'D'}:true">{{ detail.description }}</li>
+                    </ol>
+                    <br>
+                    <a href="#/detail/{{recipe.id}}" class="btn btn-primary" target="_blank"><i class="fa fa-book"></i> View</a>
+                    <a href="#/edit/{{recipe.id}}" class="btn btn-success" ng-show="isLoggedIn()" target="_blank"><i class="fa fa-edit"></i> Edit</a>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

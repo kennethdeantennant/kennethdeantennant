@@ -1,0 +1,52 @@
+<div class="container box print">
+    <div class="row">
+        <div class="col-xs-12">
+           <h4 class="heading">Printed Grocery List <i class="fa fa-print" ng-click="print()"></i></h4>
+           <div class="row">
+               <div class="col-xs-1">
+                   &nbsp;
+               </div>
+               <div class="col-xs-4">
+                   <h4 ng-if="hasMeals('b')">Breakfast</h4>
+                   <div class="row list" ng-repeat="meal in meals | filter: {menu_type:'b'}">
+                       <div class="col-xs-12">
+                           {{ meal.name }}
+                       </div>
+                   </div>
+                   <h4 ng-if="hasMeals('l')">Lunch</h4>
+                   <div class="row list" ng-repeat="meal in meals | filter: {menu_type:'l'}">
+                       <div class="col-xs-12">
+                           {{ meal.name }}
+                       </div>
+                   </div>
+                   <h4 ng-if="hasMeals('d')">Dinner</h4>
+                   <div class="row list" ng-repeat="meal in meals | filter: {menu_type:'d'}">
+                       <div class="col-xs-12">
+                           {{ meal.name }}
+                       </div>
+                   </div>
+               </div>
+               <div class="col-xs-2">
+                   &nbsp;
+               </div>
+               <div class="col-xs-4">
+                   <h4>Grocery Items</h4>
+                   <div class="row list" ng-repeat="ingredient in ingredients">
+                       <div class="col-xs-12 indent_category" ng-if="ingredient.category != currentName" style="text-transform: capitalize;">
+                           {{ setCurrentName(ingredient.category) }}
+                           {{ currentName }}
+                       </div>
+                       <div class="row">
+                           <div class="col-xs-12 indent_name" vertical-align="top" style="text-transform: capitalize;">
+                               <i class="fa fa-square-o"></i>&nbsp;&nbsp;{{ ingredient.name }} <span ng-if="ingredient.total > 1">({{ ingredient.total }})</span>
+                           </div>
+                       </div>                           
+                   </div>
+               </div>
+               <div class="col-xs-1">
+                   &nbsp;
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
